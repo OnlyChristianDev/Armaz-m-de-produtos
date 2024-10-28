@@ -1,31 +1,31 @@
 "use client"
 interface ProdutoInterface {
     nome : string
-    preco : number
+    preco : string
     image : string
 }
 
-import Image from "next/image"
+
 import React, { useState } from "react"
 import Inputs from "../../components/inputs"
 export default function Pordutos(){
 const [nome, SetNome] = useState("")
-const [preco, SetPreco] = useState(0)
+const [preco, SetPreco] = useState("")
 const [Produtos, SetProdutos] = useState<ProdutoInterface[]>([])
 const [image, SetImage] = useState("")
 
 class Produto {
     nome : string
-    preco : number
+    preco : string
     image : string
 
-    constructor(nome : string, preco : number, image : string){
+    constructor(nome : string, preco : string, image : string){
         this.nome = nome;
         this.preco = preco
         this.image = image
     }
 
-    AddProduct(nome : string, preco : number, image: string){
+    AddProduct(nome : string, preco : string, image: string){
         SetProdutos([...Produtos, {nome, preco, image}])
             
     }
@@ -45,16 +45,18 @@ const TakeName = (e : React.ChangeEvent<HTMLInputElement>) => {
 }
 
 const TakePrice = (e : React.ChangeEvent<HTMLInputElement>) => {
-    SetPreco(parseFloat(e.target.value))
+    const price = e.target.value
+    parseFloat(price)
+    SetPreco(price)
 }
 
 const submit = () => {
-    if (nome !="" && preco != 0 && image != ""){
+    if (nome !="" && preco != "" && image != ""){
         const NovoProduto = new Produto(nome, preco, image)
         SetProdutos([...Produtos, NovoProduto])
         console.log(Produtos)
         SetNome("");
-        SetPreco(0);
+        SetPreco("");
         SetImage("");
     } else {
         console.log("vazio")
@@ -74,12 +76,17 @@ const submit = () => {
                     <button className="bg-black font-medium text-white w-28 h-9 rounded-md" onClick={submit}>Enviar</button>
                 </div>
             </div>
-            <div className="flex gap-4 mt-8">
+            <div className="flex gap-4 mt-8 w-full items-center justify-center">
         {Produtos.map((produto, index) => (
-          <div key={index} className="h-96 bg-white w-64 flex flex-col items-center shadow-2xl rounded-2xl p-4">
-            <Image className="rounded-md shadow-sm" src={produto.image} alt="imagem do produto" width={200} height={200} />
-            <div className="mt-1 flex flex-col items-start w-full">
-              <h1 className="text-gray-500 text-[18px]">{produto.nome}</h1>
+          <div key={index} className="h-80 bg-white w-64 flex flex-col items-center shadow-2xl rounded-2xl p-4 ">
+            <div className="bg-gray-100 h-64 w-52 rounded-md flex items-center overflow-hidden justify-center">
+            <img
+              className="rounded-md h-full shadow-sm object-cover"
+              src={produto.image}
+            />
+            </div>
+            <div className="flex flex-col items-start w-full pl-2">
+              <h1 className="text-gray-500 text-[20px] font-normal">{produto.nome}</h1>
               <h2 className="text-5xl">{produto.preco} <span className="text-[17px] ml-[-10px] text-gray-500">/R$</span></h2>
             </div>
           </div>
