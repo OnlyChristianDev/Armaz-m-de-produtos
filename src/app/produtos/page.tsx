@@ -5,7 +5,6 @@ interface ProdutoInterface {
     image : string
 }
 
-
 import React, { useState } from "react"
 import Inputs from "../../components/inputs"
 export default function Pordutos(){
@@ -40,6 +39,7 @@ const AddImage = (event : React.ChangeEvent<HTMLInputElement>) => {
             
 }
 
+
 const TakeName = (e : React.ChangeEvent<HTMLInputElement>) => {
     SetNome(e.target.value)
 }
@@ -65,33 +65,37 @@ const submit = () => {
 
 }
     return(
-        <div className="w-full h-screen flex items-center justify-center flex-col">
-            <div>
-                <h1 className="text-4xl font-bold ">Produtos.</h1>
+       <>
+       <div className={`w-full flex items-center justify-center flex-col ${Produtos.length < 1? "h-screen" : "mt-10"}`}>
+        <div className="w-80 max-sm:w-72">
+                <h1 className="text-4xl font-bold">Produtos.</h1>
                 <div className="flex flex-col items-center gap-4">
                     <Inputs type={"text"} placeholder={"Nome"} value={nome} onChange={TakeName} />
                     <Inputs type={"number"} placeholder={"Valor"} value={preco} onChange={TakePrice} />
-                    <label htmlFor="arquivo" className="bg-black text-white uppercase text-center rounded-md pt-2 pb-2 w-80 cursor-pointer">Escolha uma Foto</label>
+                    <label htmlFor="arquivo" className="bg-black text-white uppercase text-center rounded-md pt-2 pb-2 w-[100%] cursor-pointer">Escolha uma Foto</label>
                     <input id="arquivo" className="file:bg-black file:text-white text-white file:rounded-md file:h-10 file:w-80 file:cursor-pointer" onChange={AddImage} type="file" accept="image/*"/>
                     <button className="bg-black font-medium text-white w-28 h-9 rounded-md" onClick={submit}>Enviar</button>
                 </div>
             </div>
-            <div className="flex gap-4 mt-8 w-full items-center justify-center">
+            <div className="gap-4 mb-10 h-auto mt-8 items-center justify-center grid grid-cols-5 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3">
         {Produtos.map((produto, index) => (
-          <div key={index} className="h-80 bg-white w-64 flex flex-col items-center shadow-2xl rounded-2xl p-4 ">
-            <div className="bg-gray-100 h-64 w-52 rounded-md flex items-center overflow-hidden justify-center">
+          <div key={index} className="h-96 bg-white w-64 flex flex-col items-center shadow-2xl rounded-2xl p-4 ">
+            <div className="h-64 w-52 rounded-md flex items-center overflow-hidden justify-center">
             <img
               className="rounded-md h-full shadow-sm object-cover"
               src={produto.image}
             />
             </div>
             <div className="flex flex-col items-start w-full pl-2">
+                <div className="border-t border-gray-300 w-full mt-2"></div>
               <h1 className="text-gray-500 text-[20px] font-normal">{produto.nome}</h1>
               <h2 className="text-5xl">{produto.preco} <span className="text-[17px] ml-[-10px] text-gray-500">/R$</span></h2>
             </div>
           </div>
         ))}
       </div>
-    </div>
+       </div>
+            
+      </>
   );
 }
