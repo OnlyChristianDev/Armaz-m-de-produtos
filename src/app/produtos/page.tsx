@@ -77,7 +77,7 @@ const submit = () => {
                     <button className="bg-black font-medium text-white w-28 h-9 rounded-md" onClick={submit}>Enviar</button>
                 </div>
             </div>
-            <div className="gap-4 mb-10 h-auto mt-8 items-center justify-center grid grid-cols-5 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3">
+            <div className="gap-4 mb-10 h-auto mt-8 items-center justify-center grid-cols-5 grid max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-2xl:grid-cols-3">
         {Produtos.map((produto, index) => (
           <div key={index} className="h-96 bg-white w-64 flex flex-col items-center shadow-2xl rounded-2xl p-4 ">
             <div className="h-64 w-52 rounded-md flex items-center overflow-hidden justify-center">
