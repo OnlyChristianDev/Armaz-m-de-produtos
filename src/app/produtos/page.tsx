@@ -5,6 +5,7 @@ interface ProdutoInterface {
     image : string
 }
 
+import Image from "next/image"
 import Header from "../../components/Header"
 import React, { useState } from "react"
 import Inputs from "../../components/inputs"
@@ -83,7 +84,10 @@ const submit = () => {
         {Produtos.map((produto, index) => (
           <div key={index} className="h-96 bg-white w-64 flex flex-col items-center shadow-2xl rounded-2xl p-4 ">
             <div className="h-64 w-52 rounded-md flex items-center overflow-hidden justify-center">
-            <img
+            <Image
+            width={208}
+            height={256}
+            alt="imagem do produto"
               className="rounded-md h-full shadow-sm object-cover"
               src={produto.image}
             />
