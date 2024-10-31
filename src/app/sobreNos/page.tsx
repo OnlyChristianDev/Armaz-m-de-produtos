@@ -1,13 +1,14 @@
 "use client"
 
+import Footer from "@/components/Footer"
 import Clientes from "../../components/Clientes"
 import QuestionGif from "../../animations/Questions (1).gif"
 import Mission from "../../animations/Mission Impossible.gif"
 import Image from "next/image"
 import Header from "../../components/Header"
 import Eye from "../../animations/Eyes.gif"
-export default function SobreNos(){
 
+export default function SobreNos(){
     return(
         <>     
         
@@ -54,14 +55,7 @@ export default function SobreNos(){
                 <Clientes data="8 de agosto de 2023" nome="Gabriel" avaliacao="A experiência de compra foi excelente, e eu adorei a variedade de produtos sustentáveis!"/>
                 <Clientes data="10 de janeiro de 2024" nome="Carla" avaliacao="A RETROVE é a minha escolha número um quando quero produtos que fazem a diferença."/>
             </div>
-
-            <h2>Contato</h2>
-            <div>
-                <p>Para dúvidas ou sugestões, entre em contato conosco:</p>
-                <p><strong>Email:</strong> contato@ecoloja.com.br</p>
-                <p><strong>Telefone:</strong> (11) 1234-5678</p>
-                <p><strong>Endereço:</strong> Rua Verde, 123 - São Paulo, SP</p>
-            </div>
+            <Footer />
             </div>
            
         </div>
