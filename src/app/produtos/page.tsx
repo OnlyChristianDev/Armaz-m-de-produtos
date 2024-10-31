@@ -5,6 +5,7 @@ interface ProdutoInterface {
     image : string
 }
 
+import Header from "../../components/Header"
 import React, { useState } from "react"
 import Inputs from "../../components/inputs"
 export default function Pordutos(){
@@ -67,14 +68,15 @@ const submit = () => {
     return(
        <>
        <div className={`w-full flex items-center justify-center flex-col ${Produtos.length < 1? "h-screen" : "mt-10"}`}>
+        <Header />
         <div className="w-80 max-sm:w-72">
-                <h1 className="text-4xl font-bold">Produtos.</h1>
+                <h1 className="text-4xl font-bold text-blue-600">Produtos.</h1>
                 <div className="flex flex-col items-center gap-4">
                     <Inputs type={"text"} placeholder={"Nome"} value={nome} onChange={TakeName} />
                     <Inputs type={"number"} placeholder={"Valor"} value={preco} onChange={TakePrice} />
-                    <label htmlFor="arquivo" className="bg-black text-white uppercase text-center rounded-md pt-2 pb-2 w-[100%] cursor-pointer">Escolha uma Foto</label>
-                    <input id="arquivo" className="file:bg-black file:text-white text-white file:rounded-md file:h-10 file:w-80 file:cursor-pointer" onChange={AddImage} type="file" accept="image/*"/>
-                    <button className="bg-black font-medium text-white w-28 h-9 rounded-md" onClick={submit}>Enviar</button>
+                    <label htmlFor="arquivo" className="bg-blue-600 text-white uppercase text-center rounded-md pt-2 pb-2 w-[100%] cursor-pointer">Escolha uma Foto</label>
+                    <input id="arquivo" className="file:bg-blue-600 file:text-white text-white file:rounded-md file:h-10 file:w-80 file:cursor-pointer" onChange={AddImage} type="file" accept="image/*"/>
+                    <button className="bg-blue-600 font-medium text-white w-28 h-9 rounded-md" onClick={submit}>Enviar</button>
                 </div>
             </div>
             <div className="gap-4 mb-10 h-auto mt-8 items-center justify-center grid-cols-5 grid max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-2xl:grid-cols-3">
