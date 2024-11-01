@@ -1,4 +1,4 @@
-export default function(){
+export default function Footer(){
     return(
         <div>
             <footer className="mt-10 flex items-center justify-center mb-10 flex-col">
