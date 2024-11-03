@@ -74,7 +74,7 @@ const submit = () => {
         <Header />
         <div className="item-center justify-center flex flex-col p-10">
                 <h1 className="text-4xl font-bold text-blue-600">Produtos.</h1>
-                <p className="text-gray-500 mt-[-10px] mb-1 ">Aqui voce pode adicionar seus produtos para venda.</p>
+                <p className="text-gray-500 mt-[-10px] mb-1 ">Aqui você pode adicionar seus produtos para venda.</p>
             <div className="flex flex-col items-center gap-4 ">
                 <Inputs maxLength={17} type={"text"} placeholder={"Nome"} value={nome} onChange={TakeName} />
                 <Inputs maxLength={6} type="number" placeholder={"Valor"} value={preco} onChange={TakePrice} />
