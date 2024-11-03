@@ -8,7 +8,7 @@ import Aspas from "../../public/0de302fd-5506-400e-8044-7435ee29e23f.png"
 
 export default function Clietes( {nome, avaliacao, data} : ClientesProps){
     return(
-        <div className="bg-white shadow-xl w-[600px] flex flex-col items-start rounded-md p-6">
+        <div className="bg-white shadow-xl w-[600px] flex flex-col items-start rounded-md h-[270px] p-6">
         <div className="mb-4">
             <Image src={Aspas} alt="imagem de aspas" width={50} height={50} />
         </div>

@@ -48,7 +48,7 @@ export default function SobreNos(){
             <Image width={250} src={Eye} alt="imagem de questionamento sobre nós"/>
             </div>
             </div>
-            <div className="w-full flex items-center justify-center flex-col mt-10">
+            <div className="w-full flex items-center justify-center flex-col mt-20">
                 <h1 className="text-6xl font-bold">Testemunhos de <span className="text-blue-600 ">Clientes.</span></h1>
             <div className="mt-10 flex flex-col gap-5">  
                 <Clientes data="17 de maio de 2023" nome="Christian" avaliacao="A RETROVE me ajudou a encontrar produtos incríveis que não só são bons para mim, mas também para o planeta!"/>
