@@ -33,11 +33,13 @@ class Produto {
 }
 
 const AddImage = (event : React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
-        if(file) {
-            const imgURL = URL.createObjectURL(file)
-            SetImage(imgURL)   
-            }
+    const fileInput = event.target;
+    const file = fileInput.files?.[0];
+    if (file) {
+        const imgURL = URL.createObjectURL(file);
+        SetImage(imgURL);
+        fileInput.value = ''; 
+    }
             
 }
 
@@ -70,17 +72,17 @@ const submit = () => {
        <>
        <div className={`w-full flex min-h-screen items-center justify-center flex-col ${Produtos.length < 1? "" : "mt-20"}`}>
         <Header />
-        <div>
+        <div className="item-center justify-center flex flex-col p-10">
                 <h1 className="text-4xl font-bold text-blue-600">Produtos.</h1>
-                <p className="text-gray-500 mt-[-10px] mb-1">Aqui voce pode adicionar seus produtos para venda.</p>
-                <div className="flex flex-col items-center gap-4">
-                    <Inputs type={"text"} placeholder={"Nome"} value={nome} onChange={TakeName} />
-                    <Inputs type="number" placeholder={"Valor"} value={preco} onChange={TakePrice} />
-                    <label htmlFor="arquivo" className="bg-blue-600 text-white uppercase text-center rounded-md pt-2 pb-2 w-[100%] cursor-pointer">Escolha uma Foto</label>
-                    <input id="arquivo" className="file:bg-blue-600 file:text-white text-white file:rounded-md file:h-10 file:w-80 file:cursor-pointer" onChange={AddImage} type="file" accept="image/*"/>
-                    <button className="bg-blue-600 font-medium text-white w-28 h-9 rounded-md hover:scale-110 transition-transform duration-300" onClick={submit}>ENVIAR</button>
-                </div>
+                <p className="text-gray-500 mt-[-10px] mb-1 ">Aqui voce pode adicionar seus produtos para venda.</p>
+            <div className="flex flex-col items-center gap-4 ">
+                <Inputs maxLength={17} type={"text"} placeholder={"Nome"} value={nome} onChange={TakeName} />
+                <Inputs maxLength={6} type="number" placeholder={"Valor"} value={preco} onChange={TakePrice} />
+                <label htmlFor="arquivo" className="bg-blue-600 text-white uppercase text-center rounded-md pt-2 pb-2 w-[100%] cursor-pointer">Escolha uma Foto</label>
+                <input id="arquivo" className="file:bg-blue-600 file:text-white text-white file:rounded-md file:h-10 file:w-[100%] file:cursor-pointer" onChange={AddImage} type="file" accept="image/*"/>
+                <button className="bg-blue-600 font-medium text-white w-28 h-9 rounded-md hover:scale-110 transition-transform duration-300" onClick={submit}>ENVIAR</button>
             </div>
+        </div>
             <div className="gap-4 mb-10 h-auto mt-8 items-center justify-center grid-cols-5 grid max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 max-2xl:grid-cols-3">
         {Produtos.map((produto, index) => (
           <div key={index} className="h-96 bg-white w-64 flex flex-col items-center shadow-2xl rounded-2xl p-4 ">
