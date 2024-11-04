@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Retrove
 
-## Getting Started
+**Retrove** é uma plataforma de e-commerce fictícia que permite aos usuários comprar e vender itens usados, promovendo a sustentabilidade e o consumo consciente. Este projeto foi desenvolvido como parte de um desafio de rotas proposto pela **Softex** durante o meu curso de front-end.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Next.js](https://nextjs.org/) - Um framework React para construção de aplicações web otimizadas e com suporte a renderização do lado do servidor.
+- [Tailwind CSS](https://tailwindcss.com/) - Um framework CSS que permite a criação de designs responsivos e personalizados de maneira rápida e eficiente.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Página de vendas:** Explore uma variedade de produtos ou coloque seus próprios itens à venda.
+- **Sobre nós:** Conheça a história por trás do projeto e nosso compromisso com a sustentabilidade.
+- **Contato:** Facilite a comunicação com os clientes através de uma página dedicada.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Responsividade
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O site foi projetado para ser **totalmente responsivo**, garantindo uma experiência de usuário otimizada em diferentes dispositivos e tamanhos de tela.
