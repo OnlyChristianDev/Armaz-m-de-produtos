@@ -9,7 +9,7 @@ export default function Contatos(){
     return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center">
         <Header />
-        <div className="flex items-center justify-center flex-col max-sm:mt-32">
+        <div className="flex items-center justify-center flex-col max-sm:mt-32 max-sm:mb-10">
             <h1 className="text-6xl font-bold max-sm:text-2xl max-sm:text-center max-md:text-center max-md:text-4xl max-lg:text-5xl">Entre em Contato <span className="text-blue-600">conosco.</span></h1>
             <div className="flex gap-6 items-center justify-center mt-10 max-sm:flex-col max-lg:flex-col max-md:flex-col"> 
                 <div className="max-md:flex max-lg:flex gap-6 max-sm:flex-col max-xl:flex max-2xl:flex flex">
