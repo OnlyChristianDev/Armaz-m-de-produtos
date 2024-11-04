@@ -16,3 +16,8 @@
 ## Responsividade
 
 O site foi projetado para ser **totalmente responsivo**, garantindo uma experiência de usuário otimizada em diferentes dispositivos e tamanhos de tela.
+
+## Acesso
+
+Você pode acessar o site Retrove através do seguinte link:  
+🔗 [Acesse o Retrove](link-para-o-seu-site)
