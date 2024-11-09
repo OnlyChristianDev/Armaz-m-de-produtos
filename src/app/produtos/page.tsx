@@ -7,7 +7,7 @@ interface ProdutoInterface {
 
 import Image from "next/image"
 import Header from "../../components/Header"
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Inputs from "../../components/inputs"
 export default function Pordutos(){
 const [nome, SetNome] = useState("")
