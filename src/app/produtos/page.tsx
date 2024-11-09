@@ -1,36 +1,19 @@
 "use client"
 interface ProdutoInterface {
     nome : string
-    preco : string
+    preco : number
     image : string
 }
 
 import Image from "next/image"
 import Header from "../../components/Header"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Inputs from "../../components/inputs"
 export default function Pordutos(){
 const [nome, SetNome] = useState("")
-const [preco, SetPreco] = useState("")
+const [preco, SetPreco] = useState<number | undefined>(undefined)
 const [Produtos, SetProdutos] = useState<ProdutoInterface[]>([])
 const [image, SetImage] = useState("")
-
-class Produto {
-    nome : string
-    preco : string
-    image : string
-
-    constructor(nome : string, preco : string, image : string){
-        this.nome = nome;
-        this.preco = preco
-        this.image = image
-    }
-
-    AddProduct(nome : string, preco : string, image: string){
-        SetProdutos([...Produtos, {nome, preco, image}])
-            
-    }
-}
 
 const AddImage = (event : React.ChangeEvent<HTMLInputElement>) => {
     const fileInput = event.target;
@@ -43,31 +26,39 @@ const AddImage = (event : React.ChangeEvent<HTMLInputElement>) => {
             
 }
 
-
 const TakeName = (e : React.ChangeEvent<HTMLInputElement>) => {
     SetNome(e.target.value)
 }
 
 const TakePrice = (e : React.ChangeEvent<HTMLInputElement>) => {
-    const price = e.target.value
-    parseFloat(price)
-    SetPreco(price)
+    const price = parseFloat(e.target.value);
+        SetPreco(isNaN(price) ? undefined : price);
 }
 
 const submit = () => {
-    if (nome !="" && preco != "" && image != ""){
-        const NovoProduto = new Produto(nome, preco, image)
-        SetProdutos([...Produtos, NovoProduto])
-        console.log(Produtos)
+    if (nome !== "" && preco !== undefined && image !== "" && preco > 1) {
+        const NovoProduto: ProdutoInterface = { nome, preco, image };
+        SetProdutos([...Produtos, NovoProduto]);
+        console.log(Produtos);
         SetNome("");
-        SetPreco("");
+        SetPreco(undefined);
         SetImage("");
     } else {
-        console.log("vazio")
+        console.log("vazio ou preço inválido");
     }
- 
 
 }
+
+    const handleKeyPress = (event: KeyboardEvent) => {
+        if (event.key === "Enter") {
+            submit(); 
+        }
+    };
+ 
+    document.addEventListener("keypress", handleKeyPress);
+ 
+
+
     return(
        <>
        <div className={`w-full flex min-h-screen items-center justify-center flex-col ${Produtos.length < 1? "" : "mt-20"}`}>
@@ -77,7 +68,7 @@ const submit = () => {
                 <p className="text-gray-500 mt-[-10px] mb-1 ">Aqui você pode adicionar seus produtos para venda.</p>
             <div className="flex flex-col items-center gap-4 ">
                 <Inputs maxLength={17} type={"text"} placeholder={"Nome"} value={nome} onChange={TakeName} />
-                <Inputs maxLength={6} type="number" placeholder={"Valor"} value={preco} onChange={TakePrice} />
+                <Inputs maxLength={6} type="number" placeholder={"Valor"} value={preco !== undefined ? preco : ""} onChange={TakePrice} />
                 <label htmlFor="arquivo" className="bg-blue-600 text-white uppercase text-center rounded-md pt-2 pb-2 w-[100%] cursor-pointer">Escolha uma Foto</label>
                 <input id="arquivo" className="file:bg-blue-600 file:text-white text-white file:rounded-md file:h-10 file:w-[100%] file:cursor-pointer" onChange={AddImage} type="file" accept="image/*"/>
                 <button className="bg-blue-600 font-medium text-white w-28 h-9 rounded-md hover:scale-110 transition-transform duration-300" onClick={submit}>ENVIAR</button>
